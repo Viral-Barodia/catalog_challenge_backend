@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const serverless = require("serverless-http");
 
 const app = express();
 
@@ -21,3 +22,5 @@ app.get("/", async (req, res) => {
 app.listen(8080, () => {
     console.log("Server is running on port 8080");
 })
+
+module.exports.handler = serverless(app);
